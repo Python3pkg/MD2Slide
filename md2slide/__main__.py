@@ -53,7 +53,7 @@ def main(argv=None):
     if args:
         path = args[0]
         print("Listing the markdown files in following directory.")
-        print(os.path.abspath(path))
+        print((os.path.abspath(path)))
     else:
         print("Listing the Readme and Tutorial.")
 
@@ -65,7 +65,7 @@ def main(argv=None):
             port = int(a)
         elif o in ('-v', '--verbose'):
             logging.basicConfig(level=logging.DEBUG, format='LINE %(lineno)-4d  %(levelname)-8s %(message)s', datefmt='%m-%d %H:%M')
-    print("Please visit http://127.0.0.1:{}".format(port))
+    print(("Please visit http://127.0.0.1:{}".format(port)))
     run(path, port=port)
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ import logging
 import sys
 import os
 import inspect
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import html
 import posixpath
 import io
@@ -199,7 +199,7 @@ class MDSlideHandler(server.SimpleHTTPRequestHandler):
             return os.path.join(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))), 'README.md')
         elif 'Tutorial.md' in words:
             return os.path.join(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))), 'Tutorial.md')
-        words = filter(None, words)
+        words = [_f for _f in words if _f]
         path = md_slide_dir
         for word in words:
             drive, word = os.path.splitdrive(word)
